@@ -1,5 +1,4 @@
-/*
- * Copyright (C) 2018 The Sylph Authors
+package ideal.sylph.runner.flink.udf;/* * Copyright (C) 2018 The Sylph Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -11,8 +10,10 @@
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+ * limitations under the License.*/
+
+
+/*
 package ideal.sylph.runner.flink.udf;
 
 import ideal.sylph.annotation.Description;
@@ -29,7 +30,7 @@ import java.util.Arrays;
 public class TimeUtil
 {
     @Name("date_format")
-    @Description("date_format('2018-01-01 12:00:00', 'yyyy-MM-dd HH:mm:ss')-> TIMESTAMP")
+    @Description("date_format('2018-01-01 12:00:00', 'yyyy-MM-dd HH:mm:ss')-> TIMESTAMP ")
     public static class DateFormatUDF
             extends ScalarFunction
     {
@@ -89,3 +90,4 @@ public class TimeUtil
         }
     }
 }
+*/

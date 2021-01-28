@@ -47,8 +47,8 @@ public class AsyncFunctionHelper
 
         DataStream<Row> joinResultStream = AsyncDataStream.orderedWait(
                 inputStream, asyncFunction,
-                1000, TimeUnit.MILLISECONDS, // 超时时间
-                100);  // 进行中的异步请求的最大数量
+                15000, TimeUnit.MILLISECONDS, // 超时时间
+                500);  // 进行中的异步请求的最大数量
 
         return joinResultStream;
     }
