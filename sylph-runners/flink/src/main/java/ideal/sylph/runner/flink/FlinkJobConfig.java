@@ -44,7 +44,7 @@ public class FlinkJobConfig
      */
     private int checkpointInterval = -1;   //see: CheckpointConfig.checkpointInterval;
     private long checkpointTimeout = CheckpointConfig.DEFAULT_TIMEOUT;
-    private boolean enableSavepoint = false;
+    private int enableSavepoint = 0;
     private String checkpointDir = "hdfs:///tmp/sylph/flink/savepoints/";
     private long minPauseBetweenCheckpoints = CheckpointConfig.DEFAULT_MIN_PAUSE_BETWEEN_CHECKPOINTS;
 
@@ -155,18 +155,23 @@ public class FlinkJobConfig
         return minPauseBetweenCheckpoints;
     }
 
-    @JsonProperty("enableSavepoint")
+    //    @JsonProperty("enableSavepoint")
     public boolean isEnableSavepoint()
+    {
+        return enableSavepoint == 1 ? true:false;
+    }
+
+    @JsonProperty("enableSavepoint")
+    public int getEnableSavepoint()
     {
         return enableSavepoint;
     }
 
     @JsonProperty("enableSavepoint")
-    public void setEnableSavepoint(boolean enableSavepoint)
+    public void setEnableSavepoint(int enableSavepoint)
     {
         this.enableSavepoint = enableSavepoint;
     }
-
     public void setCheckpointInterval(int checkpointInterval)
     {
         this.checkpointInterval = checkpointInterval;
