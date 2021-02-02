@@ -4,7 +4,7 @@ configurations.all {
 
 dependencies {
   // conflict was found between the following modules:
-  compileOnly group: 'org.apache.hadoop', name: 'hadoop-client', version: deps.hadoop
+  compile group: 'org.apache.hadoop', name: 'hadoop-client', version: deps.hadoop
 
   compileOnly(project(':sylph-spi'))
   compile group: 'net.java.dev.jna', name: 'jna', version: '5.4.0'

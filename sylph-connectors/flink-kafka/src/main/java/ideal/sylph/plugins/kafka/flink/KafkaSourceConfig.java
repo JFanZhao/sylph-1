@@ -19,6 +19,8 @@ import ideal.sylph.annotation.Description;
 import ideal.sylph.annotation.Name;
 import ideal.sylph.etl.PluginConfig;
 
+import java.util.Date;
+
 public class KafkaSourceConfig
         extends PluginConfig
 {
@@ -40,6 +42,14 @@ public class KafkaSourceConfig
     @Description("this is auto.offset.reset mode")
     private String offsetMode = "latest";
 
+    @Name("reset.timestamp")
+    @Description("this is auto.offset.reset mode")
+    private String timestamp = DateUtils.format(new Date(),DateUtils.SECOND);
+
+    @Name("reset.partitions")
+    @Description("this is auto.offset.reset mode")
+    private String partitions ;
+
     @Name("zookeeper.connect")
     @Description("this is kafka zk list, kafka08 and kafka09 Must need to set")
     private String zookeeper = null;   //"localhost:2181"
@@ -47,35 +57,71 @@ public class KafkaSourceConfig
     @Name("value_type")
     @Description("this is kafka String value Type, use json")
     private String valueType;
+    @Name("krbs.on")
+    @Description("this is kafka String value Type, use json")
+    private Boolean isKrbs = false;
 
-    public String getTopics()
-    {
+    /**
+     * canal kafka mutlti lines
+     */
+    @Name("filter_table")
+    @Description("this is kafka filter table name, use MultiSource")
+    private String filterTableName = "";
+
+    @Name("filter_ddl")
+    @Description("this is kafka filter DDL, use MultiSource")
+    private Boolean filterDDL = true;
+
+    @Name("files")
+    @Description("this is kafka filter fields, use MultiSource")
+    private String files = "";
+
+    public String getTimestamp() {
+        return timestamp;
+    }
+
+    public String getPartitions() {
+        return partitions;
+    }
+
+    public Boolean getFilterDDL() {
+        return filterDDL;
+    }
+
+    public String getFiles() {
+        return files;
+    }
+
+    public String getFilterTableName() {
+        return filterTableName;
+    }
+
+    public String getTopics() {
         return topics;
     }
 
-    public String getBrokers()
-    {
+    public String getBrokers() {
         return brokers;
     }
 
-    public String getGroupid()
-    {
+    public String getGroupid() {
         return groupid;
     }
 
-    public String getOffsetMode()
-    {
+    public String getOffsetMode() {
         return offsetMode;
     }
 
-    public String getZookeeper()
-    {
+    public String getZookeeper() {
         return zookeeper;
     }
 
-    public String getValueType()
-    {
+    public String getValueType() {
         return valueType;
+    }
+
+    public Boolean getKrbs() {
+        return isKrbs;
     }
 
     private KafkaSourceConfig() {}
